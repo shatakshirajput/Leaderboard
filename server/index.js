@@ -15,11 +15,23 @@ const io   = new Server(srv, { cors:{ origin:'*' } });
 
 const cors = require('cors');
 
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://claim-master-intern-project.vercel.app'
+];
+
 app.use(cors({
-  origin: 'https://claim-master-intern-project.vercel.app/', // or allow only vercel URL
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST'],
   credentials: false
 }));
+
 
 
 
