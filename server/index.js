@@ -14,7 +14,6 @@ const srv  = http.createServer(app);
 
 // ✅ Allowed origins
 const allowedOrigins = [
-  'http://localhost:5173',
   'https://claim-master-intern-project.vercel.app'
 ];
 
