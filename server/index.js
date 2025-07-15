@@ -11,7 +11,7 @@ const ClaimHistory = require('./models/ClaimHistory');
 
 const app  = express();
 const srv  = http.createServer(app);
-const io   = new Server(srv, { cors:{ origin:'*' } });
+
 
 const cors = require('cors');
 
@@ -19,6 +19,13 @@ const allowedOrigins = [
   'http://localhost:5173',
   'https://claim-master-intern-project.vercel.app'
 ];
+
+const io = new Server(srv, {
+  cors: {
+    origin: allowedOrigins,
+    methods: ['GET', 'POST'],
+  }
+});
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -130,11 +137,9 @@ io.on('connection', socket=>{
 
 /* ───────────── START ───────────── */
 const PORT = process.env.PORT || 4000;
-
-mongoose.connect(process.env.MONGO_URI,{ useNewUrlParser:true })
-  .then(()=>{
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
     console.log('✅ Connected to MongoDB');
-    srv.listen(PORT,()=>console.log(`🚀 Server + Socket.io on http://localhost:${PORT}`));
+    srv.listen(PORT, () => console.log(`🚀 Server + Socket.io on http://localhost:${PORT}`));
   })
-  .catch(err=>console.error('MongoDB error:', err));
-  
+  .catch(err => console.error('MongoDB error:', err));
