@@ -15,11 +15,6 @@ const io   = new Server(srv, { cors:{ origin:'*' } });
 
 const cors = require('cors');
 
-app.use(cors({
-  origin: '*', // or allow only vercel URL
-  methods: ['GET', 'POST'],
-  credentials: true
-}));
 
 
 
