@@ -15,6 +15,11 @@ const io   = new Server(srv, { cors:{ origin:'*' } });
 
 const cors = require('cors');
 
+app.use(cors({
+  origin: 'https://claim-master-intern-project.vercel.app/', // or allow only vercel URL
+  methods: ['GET', 'POST'],
+  credentials: false
+}));
 
 
 
