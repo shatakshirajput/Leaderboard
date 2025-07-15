@@ -13,10 +13,14 @@ const app  = express();
 const srv  = http.createServer(app);
 const io   = new Server(srv, { cors:{ origin:'*' } });
 
+const cors = require('cors');
+
 app.use(cors({
-  origin: 'http://localhost:5173', // or your deployed frontend URL
-  credentials: true,
+  origin: '*', // or allow only vercel URL
+  methods: ['GET', 'POST'],
+  credentials: true
 }));
+
 
 
 app.use(express.json());
