@@ -1,0 +1,139 @@
+/* Container */
+.leaderboard-wrapper {
+  padding: 2rem;
+  background: radial-gradient(circle at top, #fefce8, #fff);
+  font-family: 'Segoe UI', sans-serif;
+  color: #111827;
+}
+
+/* Title */
+.leaderboard-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #f59e0b;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+/* Podium */
+.podium {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.podium-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  width: 160px;
+  text-align: center;
+  border: 2px solid transparent;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.podium-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Rank Color Highlights */
+.rank-1 {
+  border-color: #ffd700;
+  background: linear-gradient(to bottom right, #fff8dc, #fde68a);
+}
+.rank-2 {
+  border-color: #c0c0c0;
+  background: linear-gradient(to bottom right, #f3f4f6, #e5e7eb);
+}
+.rank-3 {
+  border-color: #cd7f32;
+  background: linear-gradient(to bottom right, #fdf2e9, #fbcfe8);
+}
+
+/* Rank Icon */
+.podium-rank {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 1px #00000015;
+}
+
+/* Name & Score */
+.podium-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #1f2937;
+}
+
+.podium-score {
+  font-weight: 600;
+  color: #f59e0b;
+  margin-top: 0.4rem;
+  font-size: 1rem;
+}
+
+/* Others */
+.others {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.other-user {
+  display: flex;
+  justify-content: space-between;
+  background: #fefce8;
+  border: 1px solid #fcd34d;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.other-user:hover {
+  background-color: #fff7d6;
+  transform: scale(1.01);
+}
+
+.rank-num {
+  font-weight: bold;
+  color: #6b7280;
+  width: 30px;
+}
+
+.user-name {
+  flex: 1;
+  font-weight: 600;
+  text-align: left;
+  margin-left: 1rem;
+  color: #111827;
+}
+
+.user-points {
+  font-weight: 700;
+  color: #ca8a04;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .podium {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .podium-card {
+    width: 80%;
+  }
+
+  .other-user {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

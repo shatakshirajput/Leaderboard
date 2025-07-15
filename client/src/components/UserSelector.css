@@ -1,0 +1,29 @@
+.user-label {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #white; /* Set label color to black */
+  margin-bottom: 0.3rem;
+}
+
+.user-select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  background-color: #f9fafb;
+  color: #000000; /* Set dropdown text color to black */
+  transition: all 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2210%22%20height%3D%226%22%20viewBox%3D%220%200%2010%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M1%201L5%205L9%201%22%20stroke%3D%22%234B5563%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+}
+
+.user-select:focus {
+  border-color: var(--btn-bg);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+  outline: none;
+}

@@ -1,0 +1,327 @@
+:root {
+  --font-main: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --text-color: #1f2937;
+  --text-heading: #111827;
+  --text-link: #4f46e5;
+  --text-link-hover: #3730a3;
+
+  --bg-main: #f9fafb;
+  --bg-white: #ffffff;
+  --bg-hover: #e0e7ff;
+
+  --btn-bg: #4f46e5;
+  --btn-bg-hover: #4338ca;
+  --btn-danger: #ef4444;
+  --btn-danger-hover: #dc2626;
+
+  --input-border: #d1d5db;
+
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: var(--text-color);
+  background-color: var(--bg-main);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  background-color: inherit;
+  color: inherit;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-heading);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+a {
+  font-weight: 500;
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--text-link-hover);
+}
+
+/* Core Card Wrapper */
+.app-container {
+  background-color: var(--bg-white);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 960px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  margin: 0 auto; /* Center horizontally */
+  transition: all 0.3s ease;
+}
+
+
+.selector-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Button Layout */
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+/* General Buttons */
+button,
+.add-user-button,
+.read-more-btn {
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0.75em 1.6em;
+  color: white;
+  background-color: var(--btn-bg);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+
+button:hover,
+.add-user-button:hover,
+.read-more-btn:hover {
+  background-color: var(--btn-bg-hover);
+  transform: translateY(-1px);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 2px;
+}
+
+.reset-btn {
+  background-color: var(--btn-danger);
+  box-shadow: 0 6px 12px rgba(239, 68, 68, 0.2);
+}
+.reset-btn:hover {
+  background-color: var(--btn-danger-hover);
+  transform: scale(1.03);
+}
+
+/* Add User */
+.add-user-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto 2rem;
+  padding: 1.5rem;
+  background-color: var(--bg-white);
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  width: 100%;
+}
+
+.add-user-input {
+  flex: 1;
+  padding: 0.65em 1em;
+  font-size: 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.add-user-input:focus {
+  border-color: var(--btn-bg);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  outline: none;
+}
+
+/* Flash Message */
+.message {
+  margin: 1.5rem auto;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  background-color: #e0f7fa;
+  color: #0277bd;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* History */
+.history-container {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  max-width: 600px;
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.history-container h3 {
+  text-align: center;
+  color: var(--text-heading);
+  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history-item {
+  background-color: var(--bg-main);
+  margin-bottom: 0.75rem;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: background-color 0.3s ease;
+}
+.history-item:hover {
+  background-color: var(--bg-hover);
+}
+
+.user-name {
+  font-weight: 700;
+  color: #2563eb;
+}
+.points {
+  font-weight: 600;
+  color: #059669;
+}
+.timestamp {
+  font-style: italic;
+  color: #6b7280;
+  margin-left: 4px;
+}
+
+.empty-message {
+  text-align: center;
+  color: #9ca3af;
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .button-group,
+  .add-user-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  button,
+  .reset-btn,
+  .add-user-button {
+    width: 100%;
+    padding: 0.9em 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .add-user-input {
+    width: 100%;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: rgba(255, 255, 255, 0.9);
+    --text-heading: #e5e7eb;
+    --bg-main: #18181b;
+    --bg-white: #1f2937;
+    --bg-hover: #374151;
+    --input-border: #374151;
+  }
+
+  .app-container {
+    background-color: var(--bg-white);
+  }
+
+  .message {
+    background-color: #1e3a8a;
+    color: #e0f2fe;
+  }
+
+  .add-user-input {
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+
+  .add-user-input:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.4);
+  }
+
+  .history-item {
+    border-color: #4b5563;
+    color: #f3f4f6;
+  }
+
+  .user-name {
+    color: #93c5fd;
+  }
+
+  .points {
+    color: #6ee7b7;
+  }
+
+  .timestamp {
+    color: #9ca3af;
+  }
+
+  .read-more-btn,
+  button {
+    background-color: #6366f1;
+  }
+
+  .read-more-btn:hover,
+  button:hover {
+    background-color: #818cf8;
+  }
+
+  .reset-btn {
+    background-color: #dc2626;
+  }
+
+  .reset-btn:hover {
+    background-color: #f87171;
+  }
+}
