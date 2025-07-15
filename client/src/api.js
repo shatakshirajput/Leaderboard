@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:4000/api';
+const BASE_URL = import.meta.env.VITE_API_URL + '/api';
 
 export const fetchUsers = () => axios.get(`${BASE_URL}/leaderboard`);
 export const addUser = (name) => axios.post(`${BASE_URL}/users`, { name });
