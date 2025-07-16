@@ -13,7 +13,8 @@ const srv  = http.createServer(app);
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://leaderboard-shatakshi-rajputs-projects.vercel.app/'
+  'https://leaderboard-shatakshi-rajputs-projects.vercel.app/',
+  '*'
 ];
 
 const io = new Server(srv, {
