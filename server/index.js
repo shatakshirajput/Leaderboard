@@ -12,12 +12,12 @@ const app  = express();
 const srv  = http.createServer(app);
 
 const allowedOrigins = [
-  'https://leaderboard-beryl-pi.vercel.app/'
+  'https://leaderboard-beryl-pi.vercel.app'
 ];
 
 const io = new Server(srv, {
   cors: {
-    origin: 'http://localhost:5173' || 'https://leaderboard-shatakshi-rajputs-projects.vercel.app/',
+    origin: 'https://leaderboard-beryl-pi.vercel.app',
     methods: ['GET', 'POST'],
     credentials: true
   }
