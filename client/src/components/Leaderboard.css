@@ -1,7 +1,7 @@
 /* Container */
 .leaderboard-wrapper {
   padding: 2rem;
-  background: radial-gradient(circle at top, #fefce8, #fff);
+  background: radial-gradient(circle at top, #f1f5f9, #e2e8f0);
   font-family: 'Segoe UI', sans-serif;
   color: #111827;
 }
@@ -12,126 +12,128 @@
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 2rem;
-  color: #f59e0b;
+  color: #1e3a8a;
   text-shadow: 1px 1px 0 #fff;
 }
 
-/* Podium */
-.podium {
+.gold-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.leaderboard-subtitle {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-top: -0.8rem;
+}
+
+/* Fancy Podium */
+.podium-golden {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  align-items: flex-end;
+  gap: 1rem;
   flex-wrap: wrap;
   margin-bottom: 3rem;
 }
 
-.podium-card {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 1.5rem;
-  padding: 1.5rem;
-  width: 160px;
+.golden-card {
+  width: 120px;
+  height: 160px;
+  background: linear-gradient(145deg, #e2e8f0, #cbd5e1);
+  border-radius: 1rem;
+  border: 3px solid #1e3a8a;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   text-align: center;
-  border: 2px solid transparent;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  cursor: pointer;
+  padding: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.podium-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+.golden-card:hover {
+  transform: translateY(-3px);
 }
 
-/* Rank Color Highlights */
-.rank-1 {
-  border-color: #ffd700;
-  background: linear-gradient(to bottom right, #fff8dc, #fde68a);
-}
-.rank-2 {
-  border-color: #c0c0c0;
-  background: linear-gradient(to bottom right, #f3f4f6, #e5e7eb);
-}
-.rank-3 {
-  border-color: #cd7f32;
-  background: linear-gradient(to bottom right, #fdf2e9, #fbcfe8);
-}
-
-/* Rank Icon */
-.podium-rank {
-  font-size: 2.2rem;
+.golden-rank-icon {
+  font-size: 2rem;
   margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 1px #00000015;
 }
 
-/* Name & Score */
-.podium-name {
-  font-weight: 700;
-  font-size: 1.05rem;
+.golden-name {
+  font-weight: bold;
   color: #1f2937;
 }
 
-.podium-score {
-  font-weight: 600;
-  color: #f59e0b;
-  margin-top: 0.4rem;
+.golden-score {
   font-size: 1rem;
+  color: #1e40af;
+  margin-top: 0.3rem;
 }
 
-/* Others */
-.others {
+/* Lower Rank Rows */
+.golden-others {
   max-width: 600px;
   margin: 0 auto;
 }
 
-.other-user {
+.golden-other-row {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  background: #fefce8;
-  border: 1px solid #fcd34d;
-  border-radius: 1rem;
-  padding: 1rem 1.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 }
 
-.other-user:hover {
-  background-color: #fff7d6;
-  transform: scale(1.01);
-}
-
-.rank-num {
-  font-weight: bold;
-  color: #6b7280;
+.golden-rank {
+  font-weight: 700;
+  color: #1e3a8a;
   width: 30px;
 }
 
-.user-name {
+.golden-other-name {
   flex: 1;
   font-weight: 600;
-  text-align: left;
+  color: #1f2937;
   margin-left: 1rem;
-  color: #111827;
 }
 
-.user-points {
-  font-weight: 700;
-  color: #ca8a04;
+.golden-other-score {
+  color: #1e40af;
+  font-weight: bold;
 }
 
-/* Responsive */
+/* Rank Colors */
+.rank-1 {
+  border-color: #1e3a8a;
+  background: linear-gradient(to bottom right, #dbeafe, #c7d2fe);
+}
+
+.rank-2 {
+  border-color: #6b7280;
+  background: linear-gradient(to bottom right, #e5e7eb, #f3f4f6);
+}
+
+.rank-3 {
+  border-color: #4b5563;
+  background: linear-gradient(to bottom right, #e2e8f0, #cbd5e1);
+}
+
+/* Mobile Responsive */
 @media (max-width: 600px) {
-  .podium {
+  .podium-golden {
     flex-direction: column;
     align-items: center;
   }
 
-  .podium-card {
+  .golden-card {
     width: 80%;
   }
 
-  .other-user {
+  .golden-other-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;

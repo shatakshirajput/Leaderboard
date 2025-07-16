@@ -5,17 +5,6 @@
   --text-link: #4f46e5;
   --text-link-hover: #3730a3;
 
-  --bg-main: #f9fafb;
-  --bg-white: #ffffff;
-  --bg-hover: #e0e7ff;
-
-  --btn-bg: #4f46e5;
-  --btn-bg-hover: #4338ca;
-  --btn-danger: #ef4444;
-  --btn-danger-hover: #dc2626;
-
-  --input-border: #d1d5db;
-
   font-family: var(--font-main);
   font-size: 16px;
   line-height: 1.6;
@@ -26,17 +15,13 @@
 }
 
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem 1rem;
-  background-color: inherit;
-  color: inherit;
+  /* Remove vertical centering and padding that constrains height */
+  display: block;
+  padding: 0;
+  align-items: unset;
+  justify-content: unset;
 }
+
 
 h1 {
   font-size: 2.5rem;
@@ -59,14 +44,13 @@ a:hover {
 
 /* Core Card Wrapper */
 .app-container {
-  background-color: var(--bg-white);
-  border-radius: 1.25rem;
+  width: 100vw;
+  height: 100vh;
   padding: 2rem;
-  width: 100%;
-  max-width: 960px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  margin: 0 auto; /* Center horizontally */
-  transition: all 0.3s ease;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -99,7 +83,6 @@ button,
   border-radius: 10px;
   cursor: pointer;
   padding: 0.75em 1.6em;
-  color: white;
   background-color: var(--btn-bg);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   transition: all 0.25s ease;
@@ -108,7 +91,6 @@ button,
 button:hover,
 .add-user-button:hover,
 .read-more-btn:hover {
-  background-color: var(--btn-bg-hover);
   transform: translateY(-1px);
 }
 
@@ -136,8 +118,6 @@ button:focus-visible {
   align-items: center;
   margin: 1rem auto 2rem;
   padding: 1.5rem;
-  background-color: var(--bg-white);
-  border: 1px solid #d1d5db;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   max-width: 600px;
@@ -163,7 +143,6 @@ button:focus-visible {
   margin: 1.5rem auto;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  background-color: #e0f7fa;
   color: #0277bd;
   font-size: 1rem;
   font-weight: 500;
@@ -177,7 +156,6 @@ button:focus-visible {
   margin: 2rem auto;
   padding: 1.5rem;
   max-width: 600px;
-  background-color: var(--bg-white);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
@@ -197,18 +175,13 @@ button:focus-visible {
 }
 
 .history-item {
-  background-color: var(--bg-main);
   margin-bottom: 0.75rem;
   padding: 1rem 1.2rem;
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
   color: var(--text-color);
   font-size: 1rem;
   line-height: 1.6;
   transition: background-color 0.3s ease;
-}
-.history-item:hover {
-  background-color: var(--bg-hover);
 }
 
 .user-name {
@@ -257,71 +230,5 @@ button:focus-visible {
 
   .add-user-input {
     width: 100%;
-  }
-}
-
-/* Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: rgba(255, 255, 255, 0.9);
-    --text-heading: #e5e7eb;
-    --bg-main: #18181b;
-    --bg-white: #1f2937;
-    --bg-hover: #374151;
-    --input-border: #374151;
-  }
-
-  .app-container {
-    background-color: var(--bg-white);
-  }
-
-  .message {
-    background-color: #1e3a8a;
-    color: #e0f2fe;
-  }
-
-  .add-user-input {
-    background-color: #1f2937;
-    color: #f9fafb;
-  }
-
-  .add-user-input:focus {
-    border-color: #818cf8;
-    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.4);
-  }
-
-  .history-item {
-    border-color: #4b5563;
-    color: #f3f4f6;
-  }
-
-  .user-name {
-    color: #93c5fd;
-  }
-
-  .points {
-    color: #6ee7b7;
-  }
-
-  .timestamp {
-    color: #9ca3af;
-  }
-
-  .read-more-btn,
-  button {
-    background-color: #6366f1;
-  }
-
-  .read-more-btn:hover,
-  button:hover {
-    background-color: #818cf8;
-  }
-
-  .reset-btn {
-    background-color: #dc2626;
-  }
-
-  .reset-btn:hover {
-    background-color: #f87171;
   }
 }

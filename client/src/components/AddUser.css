@@ -1,9 +1,8 @@
-
-
 @media (min-width: 600px) {
   .add-user-card {
     flex-direction: row;
     align-items: center;
+    width: 500px;
   }
 }
 
@@ -15,11 +14,13 @@
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s ease;
+  width: 300px;
+  margin-right: 25px;
 }
 
 .add-user-input:focus {
-  border-color: #6366f1;
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
 .add-user-btn {
@@ -27,14 +28,14 @@
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
-  background: linear-gradient(to right, #6366f1, #8b5cf6);
+  background: linear-gradient(to right, #2563eb, #3b82f6);
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
-  box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
 }
 
 .add-user-btn:hover {
-  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  background: linear-gradient(to right, #1e3a8a, #2563eb);
 }

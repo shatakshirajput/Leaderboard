@@ -1,107 +1,69 @@
-.history-container {
-  margin: 2rem auto;
+.history-wrapper {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
   padding: 1.5rem;
-  max-width: 600px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 1rem;
+  max-width: 650px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-.history-container h3 {
+.history-title {
   text-align: center;
-  color: #111827;
+  color: #1e3a8a;
+  font-size: 1.5rem;
   margin-bottom: 1.2rem;
-  font-size: 1.8rem;
-  font-weight: 600;
+}
+
+.history-empty {
+  text-align: center;
+  color: #6b7280;
 }
 
 .history-list {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.history-item {
-  background-color: #f9fafb;
+.history-row {
+  background: #e2e8f0;
   margin-bottom: 0.75rem;
-  padding: 1rem 1.2rem;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.7rem;
+  border-left: 4px solid #3b82f6;
+  font-size: 0.95rem;
   color: #1f2937;
-  font-size: 1rem;
-  line-height: 1.6;
-  transition: background-color 0.3s ease;
-  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
-.history-item:hover {
-  background-color: #e0e7ff;
-}
-
-.user-name {
-  font-weight: 700;
-  color: #2563eb;
-}
-
-.points {
+.history-name {
   font-weight: 600;
-  color: #059669;
+  color: #1e3a8a;
 }
 
-.timestamp {
+.history-points {
+  font-weight: bold;
+  color: #1d4ed8;
+}
+
+.history-time {
   font-style: italic;
   color: #6b7280;
-  margin-left: 4px;
 }
 
-.empty-message {
-  text-align: center;
-  color: #9ca3af;
-  font-style: italic;
-  margin-top: 1rem;
-  font-size: 1rem;
-}
-
-.read-more-btn {
-  margin-top: 1.2rem;
+.toggle-btn {
   display: block;
-  background-color: #4f46e5;
-  color: #ffffff;
-  padding: 0.6rem 1.4rem;
+  margin: 1rem auto 0;
+  background-color: #3b82f6;
   border: none;
-  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  color: #ffffff;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  margin-left: auto;
-  margin-right: auto;
+  transition: background-color 0.2s;
 }
 
-.read-more-btn:hover {
-  background-color: #4338ca;
-}
-
-/* ✅ Mobile responsiveness */
-@media (max-width: 480px) {
-  .history-container {
-    padding: 1rem;
-    margin: 1.2rem 1rem;
-  }
-
-  .history-container h3 {
-    font-size: 1.4rem;
-  }
-
-  .history-item {
-    font-size: 0.95rem;
-    padding: 0.85rem 1rem;
-  }
-
-  .read-more-btn {
-    width: 100%;
-    font-size: 1rem;
-    padding: 0.75rem;
-  }
+.toggle-btn:hover {
+  background-color: #2563eb;
 }
