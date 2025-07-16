@@ -1,30 +1,35 @@
-const express  = require('express');
-const http     = require('http');
+const express = require('express');
+const http = require('http');
 const { Server } = require('socket.io');
 const mongoose = require('mongoose');
-const cors     = require('cors');
+const cors = require('cors');
 require('dotenv').config();
 
-const User         = require('./models/User');
+const User = require('./models/User');
 const ClaimHistory = require('./models/ClaimHistory');
 
-const app  = express();
-const srv  = http.createServer(app);
+const app = express();
+const srv = http.createServer(app);
 
+// ✅ Allowed frontend origins (add more if needed)
 const allowedOrigins = [
+  'http://localhost:5173',
   'https://leaderboard-beryl-pi.vercel.app'
 ];
 
+// ✅ Socket.io CORS setup
 const io = new Server(srv, {
   cors: {
-    origin: 'https://leaderboard-beryl-pi.vercel.app',
+    origin: allowedOrigins,
     methods: ['GET', 'POST'],
     credentials: true
   }
 });
 
+// ✅ Express CORS setup
 app.use(cors({
-  origin: (origin, callback) => {
+  origin: function (origin, callback) {
+    // Allow requests with no origin like Postman or curl
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -38,6 +43,7 @@ app.use(express.json());
 
 app.get('/', (_req, res) => res.send('Leaderboard API running'));
 
+// ✅ Create user
 app.post('/api/users', async (req, res) => {
   try {
     const { name } = req.body;
@@ -51,6 +57,7 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
+// ✅ Claim points
 app.post('/api/claim', async (req, res) => {
   try {
     const { userId } = req.body;
@@ -79,6 +86,7 @@ app.post('/api/claim', async (req, res) => {
   }
 });
 
+// ✅ Reset leaderboard
 app.post('/api/reset', async (_req, res) => {
   try {
     await User.updateMany({}, { $set: { totalPoints: 0 } });
@@ -91,6 +99,7 @@ app.post('/api/reset', async (_req, res) => {
   }
 });
 
+// ✅ Get leaderboard
 app.get('/api/leaderboard', async (_req, res) => {
   try {
     const users = await User.find().sort({ totalPoints: -1 });
@@ -100,6 +109,7 @@ app.get('/api/leaderboard', async (_req, res) => {
   }
 });
 
+// ✅ Get history
 app.get('/api/history', async (_req, res) => {
   try {
     const history = await ClaimHistory.find()
@@ -112,15 +122,20 @@ app.get('/api/history', async (_req, res) => {
   }
 });
 
+// ✅ Socket.io connection event
 io.on('connection', socket => {
   console.log('Client connected:', socket.id);
   socket.on('disconnect', () => console.log('Client disconnected', socket.id));
 });
 
+// ✅ Start the server after Mongo connects
 const PORT = process.env.PORT || 4000;
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB');
-    srv.listen(PORT, () => console.log(`Server + Socket.io on http://localhost:${PORT}`));
+    srv.listen(PORT, () => {
+      console.log(`Server + Socket.io running on port ${PORT}`);
+    });
   })
   .catch(err => console.error('MongoDB error:', err));
