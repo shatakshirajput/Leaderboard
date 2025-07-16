@@ -12,8 +12,6 @@ const app  = express();
 const srv  = http.createServer(app);
 
 const allowedOrigins = [
-  'http://localhost:5173',
-  'https://leaderboard-shatakshi-rajputs-projects.vercel.app/',
   '*'
 ];
 
