@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // ✅ Make sure this matches your backend server's actual port
-const BASE_URL = 'http://localhost:4000/api'; 
+const BASE_URL = ('http://localhost:4000/' || 'https://leaderboard-qua5.onrender.com') + '/api'; 
 
 export const fetchUsers = () => axios.get(`${BASE_URL}/leaderboard`);
 export const addUser = (name) => axios.post(`${BASE_URL}/users`, { name });

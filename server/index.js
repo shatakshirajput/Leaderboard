@@ -12,20 +12,26 @@ const app  = express();
 const srv  = http.createServer(app);
 
 const allowedOrigins = [
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'https://leaderboard-shatakshi-rajputs-projects.vercel.app/'
 ];
 
 const io = new Server(srv, {
   cors: {
-    origin: 'http://localhost:5173', // ✅ must match frontend
+    origin: 'http://localhost:5173' || 'https://leaderboard-shatakshi-rajputs-projects.vercel.app/',
     methods: ['GET', 'POST'],
     credentials: true
   }
 });
 
 app.use(cors({
-  origin: 'http://localhost:5173',
-  methods: ['GET', 'POST'],
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
