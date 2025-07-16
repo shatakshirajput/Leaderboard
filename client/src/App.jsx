@@ -15,7 +15,7 @@ import History from './components/History';
 
 import './App.css';
 
-const socket = io('http://localhost:4000');
+const socket = io('https://leaderboard-qua5.onrender.com');
 
 function App() {
   const [users, setUsers] = useState([]);
