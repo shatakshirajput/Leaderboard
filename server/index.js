@@ -12,7 +12,7 @@ const app  = express();
 const srv  = http.createServer(app);
 
 const allowedOrigins = [
-  '*'
+  'https://leaderboard-beryl-pi.vercel.app/'
 ];
 
 const io = new Server(srv, {
